@@ -77,7 +77,7 @@ class CRUD{
 			$_SESSION['userName']=$document->userName;
 			$_SESSION['hidden']=$document->hiddenValue;
 			echo $_SESSION['userName'];
-			header("Location: index.php");
+			header("Location: welcome.php");
 		}
 		
 		else{

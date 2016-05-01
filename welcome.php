@@ -33,7 +33,7 @@ foreach($corsur as $data ){
 	
 	
 if(isset($_POST["submit"])){
-	header("Locatiion: level1.php");
+	//header("Locatiion: level1.php");
 	if(isset($_POST['decide']) || !empty($_POST['decide'])
 	 && isset($_POST['thing1']) || !empty($_POST['thing1'])
 	 && isset($_POST['thing2']) || !empty($_POST['thing2'])
