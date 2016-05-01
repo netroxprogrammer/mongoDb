@@ -46,6 +46,7 @@ if(isset($_POST['username']) || !empty($_POST['username'])
 	
 	$crud->login($query);
 	
+	
 /* 	$result=$crud->Insert($bulk);
 	if($result){
 		echo "Data Enter";
