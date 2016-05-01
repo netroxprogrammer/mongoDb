@@ -5,12 +5,22 @@ $crud = new CRUD();
 
 
 /* $query = new MongoDB\Driver\Query([]);
-$crud->readDatabase($query);
-  */
+$crud->readDatabase($query); */
+  
 //phpinfo();
+
 if(isset($_GET['error'])){?>
+<br><br>
 	<p class="bg-danger text-center"><?php echo $_GET['error'];?></p></center>
 <?php } 
+
+if(isset($_SESSION['name']) && isset($_SESSION['userName']) && isset($_SESSION['hidden']) ){
+	header("Location: index.php?message=Your are already Login");
+	
+}
+else{
+
+
 
 if(isset($_POST['SignUp'])){
 
@@ -34,15 +44,8 @@ if(isset($_POST['username']) || !empty($_POST['username'])
 	
 	$query = new MongoDB\Driver\Query($filter, $options);
 	
-	$result=$crud->login($query);
-	if($result==1){
-		
-		//echo $document->userName;
-		header("Location: index.php");
-	}
-	else{
-		header("Location: login.php?error=Sorry  User Not Found");
-	}
+	$crud->login($query);
+	
 /* 	$result=$crud->Insert($bulk);
 	if($result){
 		echo "Data Enter";
@@ -63,6 +66,7 @@ if(isset($_POST['username']) || !empty($_POST['username'])
 <head>
 </head>
 <body>
+<br><br><br><br><br><br><br><br>
 <div class="row">
 <div class="col-xs-8 well  col-xs-offset-2">
 <button type="button" class="btn btn-primary btn-lg btn-block">Login</button><br><br>
@@ -70,14 +74,14 @@ if(isset($_POST['username']) || !empty($_POST['username'])
   <div class="form-group">
     <label for="inputEmail3" class="col-sm-2 control-label">User Name</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="username" placeholder="username">
+      <input type="text" class="form-control" name="username" placeholder="username"  required="required" >
     </div>
   </div>
   
   <div class="form-group">
     <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
     <div class="col-sm-10">
-      <input type="password" class="form-control" name="password" placeholder="Password">
+      <input type="password" class="form-control" name="password" placeholder="Password" required="required">
     </div>
   </div>
   
@@ -97,5 +101,5 @@ if(isset($_POST['username']) || !empty($_POST['username'])
 
 </body>
 </html>
-
+<?php }?>
 

@@ -10,6 +10,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 
+<?php if(isset($_SESSION['name']) && isset($_SESSION['userName'])){ ?>
 <body>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -26,4 +27,5 @@
     </ul>
   </div>
 </nav>
+<?php }?>
 <div class="container">

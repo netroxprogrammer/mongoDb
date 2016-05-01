@@ -60,6 +60,7 @@ class CRUD{
 		}
 		return false;
 	}
+	
 	/**
 	 * @Login Databse
 	 * 
@@ -71,12 +72,29 @@ class CRUD{
 		$cursor = $this->manager->executeQuery("db.questionConnection", $query, $this->rp);
 		if($cursor!=null || !empty($cursor)){
 		foreach($cursor as $document) {
-			return 1;
-			
+			if(!empty($document->_id)){
+			$_SESSION['name']=$document->name;
+			$_SESSION['userName']=$document->userName;
+			$_SESSION['hidden']=$document->hiddenValue;
+			echo $_SESSION['userName'];
+			header("Location: index.php");
 		}
 		
+		else{
+			
+			header("Location: login.php?error=Sorry User Not Found");
+		
+		}
+		}
+		
+		
+		
 	}
-	return -1;
+	else{
+		header("Location: login.php?error=Sorry User Not Found");
+	
+	}
+	
 	}
 	
 	/**

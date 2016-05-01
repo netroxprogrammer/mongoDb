@@ -7,7 +7,13 @@ $crud = new CRUD();
 
 if(isset($_GET['error'])){?>
 	<p class="bg-danger text-center"><?php echo $_GET['error'];?></p></center>
-<?php } 
+<?php }
+
+if(isset($_SESSION['name']) && isset($_SESSION['userName']) && isset($_SESSION['hidden'])){
+	header("Location: index.php?message=Your are already Login");
+
+}
+else{
 //phpinfo();
 if(isset($_POST['submit'])){
 
@@ -27,8 +33,8 @@ if(isset($_POST['name']) || !empty($_POST['name'])
 		header("Location: signup.php?error=Password Not Match");
 	} 
 	else{
-	$document = ["name" => "$name", "email"=>"$email" , "userName" => "$userName", "pass"=>"$pass" , "cofrmpass"=>"$cfrmpass"];
-	
+	$document = ["name" => "$name", "email"=>"$email" , "userName" => "$userName", "pass"=>"$pass" , "cofrmpass"=>"$cfrmpass" 
+			, "hiddenValue" => "$email.$hiddenValue"];
 
 	$bulk = new MongoDB\Driver\BulkWrite;
 	$bulk->insert($document);
@@ -57,6 +63,7 @@ if(isset($_POST['name']) || !empty($_POST['name'])
 <head>
 </head>
 <body>
+<br><br><br><br><br><br>
 <div class="row">
 <div class="col-xs-8 well  col-xs-offset-2">
 <button type="button" class="btn btn-primary btn-lg btn-block">Register Now</button><br><br>
@@ -104,5 +111,6 @@ if(isset($_POST['name']) || !empty($_POST['name'])
 
 </body>
 </html>
+<?php } ?>
 
 
