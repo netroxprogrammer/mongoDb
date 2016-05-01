@@ -10,7 +10,7 @@ if(isset($_GET['error'])){?>
 <?php }
 
 if(isset($_SESSION['name']) && isset($_SESSION['userName']) && isset($_SESSION['hidden'])){
-	header("Location: index.php?message=Your are already Login");
+	header("Location: welcome.php?message=Your are already Login");
 
 }
 else{
@@ -42,6 +42,7 @@ if(isset($_POST['name']) || !empty($_POST['name'])
 	if($result){
 		header("Location: login.php");
 	}
+	
 	
 /* 	$result=$crud->Insert($bulk);
 	if($result){

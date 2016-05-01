@@ -106,7 +106,7 @@ class CRUD{
 			/* Specify the full namespace as the first argument, followed by the query
 			 * object and an optional read preference. MongoDB\Driver\Cursor is returned
 			 * success; otherwise, an exception is thrown. */
-			$cursor = $this->manager->executeQuery("db.questionConnection", $query, $this->rp);
+			$cursor = $this->manager->executeQuery("db.userlevels", $query, $this->rp);
 		
 			// Iterate over all matched documents
 			foreach ($cursor as $document) {
@@ -118,9 +118,43 @@ class CRUD{
 	}
 	
 	/**
-	 * 
+	 *  Save USer Data
 	 */
 	
-}
+
+	/*
+	 * Insert Into Database
+	 */
+	public  function addUserData($dbName,$bulkk){
+	
+		try {
+			/* Specify the full namespace as the first argument, followed by the bulk
+			 * write object and an optional write concern. MongoDB\Driver\WriteResult is
+			 * returned on success; otherwise, an exception is thrown. */
+			$result = $this->manager->executeBulkWrite($dbName, $bulkk, $this->wc);
+			return true;
+			// var_dump($result);
+		} catch (MongoDB\Driver\Exception\Exception $e) {
+			echo $e->getMessage(), "\n";
+		}
+		return false;
+	}
+	
+	/**
+	 * check Levels Levels
+	 */
+	
+	public function  checkLeveles($dbLevel,$query){
+		$this->manager = new MongoDB\Driver\Manager();
+	
+		$cursor = $this->manager->executeQuery($dbLevel, $query, $this->rp);
+		if($cursor!=null || !empty($cursor)){
+			return $cursor;
+			}
+		}
+	}
+	
+			
+
 
 ?>

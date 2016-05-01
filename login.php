@@ -4,8 +4,8 @@
 $crud = new CRUD();
 
 
-/* $query = new MongoDB\Driver\Query([]);
-$crud->readDatabase($query); */
+ $query = new MongoDB\Driver\Query([]);
+$crud->readDatabase($query); 
   
 //phpinfo();
 
@@ -15,7 +15,7 @@ if(isset($_GET['error'])){?>
 <?php } 
 
 if(isset($_SESSION['name']) && isset($_SESSION['userName']) && isset($_SESSION['hidden']) ){
-	header("Location: index.php?message=Your are already Login");
+	header("Location: welcome.php?message=Your are already Login");
 	
 }
 else{
@@ -39,7 +39,7 @@ if(isset($_POST['username']) || !empty($_POST['username'])
 
 	$filter = ["userName" => "$userName" , "pass"=>"$pass"];
 	$options = [
-			'projection' => ['name' => "","email"=>"",'userName'=>"","","pass"=>""],
+			'projection' => ['name' => "","email"=>"",'userName'=>"","","pass"=>"","hiddenValue"=> ""],
 	];
 	
 	$query = new MongoDB\Driver\Query($filter, $options);
