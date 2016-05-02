@@ -10,7 +10,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 
-<?php if(isset($_SESSION['name']) && isset($_SESSION['userName'])){ ?>
+<?php if(isset($_SESSION['name']) && isset($_SESSION['userName'])  && isset($_SESSION['hidden'])){ ?>
 <body>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -22,8 +22,8 @@
       
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    
+      <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> logout</a></li>
     </ul>
   </div>
 </nav>

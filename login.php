@@ -3,9 +3,9 @@
 <?php
 $crud = new CRUD();
 
-
+/* 
  $query = new MongoDB\Driver\Query([]);
-$crud->readDatabase($query); 
+$crud->readDatabase($query);  */
   
 //phpinfo();
 
@@ -22,10 +22,6 @@ else{
 
 
 
-if(isset($_POST['SignUp'])){
-
-	header("Location: signup.php");
-}
 
 // check submit button press 
 if(isset($_POST['submit'])){
@@ -91,7 +87,7 @@ if(isset($_POST['username']) || !empty($_POST['username'])
     <div class="col-sm-offset-2 col-sm-10">
       <input type="submit" class="btn btn-default"  name="submit">
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-       <input type="submit" class="btn btn-default" value="SignUp" name="SignUp">
+       <a href="signup.php" class="btn btn-default">SignUp</a>
     </div>
   </div>
   

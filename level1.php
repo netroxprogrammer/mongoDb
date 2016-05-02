@@ -23,11 +23,13 @@ $query = new MongoDB\Driver\Query($filter, $options);
 $corsur = $crud->checkLeveles($dblevels,$query);
 foreach($corsur as $data ){
 	//
-
+    
 	//var_dump($data);
 	if($data->level=="1"){
 		header("Location: level2.php");
 	}
+	
+	
 
 }
 
@@ -55,6 +57,7 @@ if(isset($_POST["submit"])){
 
 <html>
 <head>
+<title>Level 1</title>
 <link rel="stylesheet" type="text/css" href="css/formstyle.css" />
 </head>
 <body>

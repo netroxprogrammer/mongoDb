@@ -28,6 +28,7 @@ foreach($corsur as $data ){
 	if($data->level=="2"){
 		header("Location: level3.php");
 	}
+	
 
 }
 
@@ -68,7 +69,7 @@ if(isset($_POST["submit"])){
 <head>
 
 <link rel="stylesheet" type="text/css" href="css/level2style.css" />
-<title>Untitled Document</title>
+<title>Level 2</title>
 </head>
 
 <body>
