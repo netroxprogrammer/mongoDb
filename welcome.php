@@ -68,12 +68,18 @@ if(isset($_POST["submit"])){
 
 <html>
 <head>
+
 <link rel="stylesheet" type="text/css" href="css/level5.css" />
+<title>  
+welcome Page
+</title>
 </head>
 <body>
+
 <div class="wrapper">
 <br><br>
     <div class="container">
+   
         <p>Welcome to ON The mind please Complete the following  the questionaire below</p>       
         <form class="form" method="post">
         1.Why have you decided to use this app?
